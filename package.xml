@@ -10,6 +10,11 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>moveit_ros_planning</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <!--depend>rcl_yaml_param_parser</depend-->
+  <!-- depend>yaml</depend-->
+  <depend>yaml-cpp</depend>
+  <depend>pluginlib</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

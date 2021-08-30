@@ -55,6 +55,9 @@ public:
     void LoadUrdfSrdf(const std::string& urdf_package, const std::string& urdf_relative_path,
                       const std::string& srdf_package, const std::string& srdf_relative_path,
                       const std::string& name);
+
+    bool LoadYAML(const std::string& package_name, const std::string& relative_path,
+                  const std::string& name);
 };
 
 #endif //MOVEIT_TASK_PLANNER_ROS_DATA_LOADER_H

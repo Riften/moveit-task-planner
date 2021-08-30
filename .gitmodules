@@ -1,0 +1,4 @@
+[submodule "extern/bullet3"]
+	path = extern/bullet3
+	url = git@github.com:bulletphysics/bullet3.git
+	branch = master

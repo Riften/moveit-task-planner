@@ -8,4 +8,4 @@ target_include_directories(demo
 
 target_link_libraries(demo ${Log4cxx_LIBRARY} ros_data_loader)
 
-ament_target_dependencies(demo moveit_ros_planning rclcpp)
+ament_target_dependencies(demo moveit_ros_planning rclcpp pluginlib moveit_ros_planning_interface)

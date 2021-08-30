@@ -1,6 +1,9 @@
 SET(LIB_NAME "ros_data_loader")
-add_library(${LIB_NAME} src/ros_data_loader.cpp)
+add_library(${LIB_NAME}
+        src/ros_data_loader.cpp
+        src/moveit_data_loader.cpp)
 target_link_libraries(${LIB_NAME} ${Log4cxx_LIBRARY})
+target_link_libraries(${LIB_NAME} ${YAML_CPP_LIBRARIES})
 ament_target_dependencies(${LIB_NAME} rclcpp ament_index_cpp)
 target_include_directories(${LIB_NAME}
         PUBLIC
