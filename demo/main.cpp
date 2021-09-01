@@ -14,6 +14,13 @@
 
 #include <robotflow_log.h>
 #include <boost/scoped_ptr.hpp>
+#include <bullet_app/bullet_app.h>
+
+#include <unistd.h>
+
+#include <BulletCollision/CollisionShapes/btBoxShape.h>
+#include <rviz_visual_tools/rviz_visual_tools.hpp>
+#include <rviz_visual_tools/rviz_visual_tools_gui.hpp>
 
 static const std::string ompl_plugin_name = "ompl_interface/OMPLPlanner";
 static log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger("Demo");
@@ -98,19 +105,10 @@ int main(int argc, const char* argv[]) {
         LOG4CXX_FATAL(logger, "Empty planner")
     }
 
-    /*
-    LOG4CXX_INFO(logger, "Test list parameter")
-    auto query_res = node->list_parameters(std::vector<std::string>{}, 10);
-    for (unsigned long i = 0; i< query_res.names.size(); ++i) {
-        LOG4CXX_DEBUG(logger, "Parameter list: " << query_res.names[i])
-    }
-     */
+    rviz_visual_tools::RvizVisualToolsGui rviz_gui();
+    rviz_visual_tools::RvizVisualTools rviz_tool("/world", "rviz_marker", node);
 
-    // std::cout << node ->get_parameter("panda_model_planning.joint_limits.virtual_joint/trans_x.max_position")
-    //     << std::endl;
-    // Create Robot Model Loader
-
-    // executor.cancel();
+    sleep(10);
     rclcpp::shutdown();
     return 0;
 }

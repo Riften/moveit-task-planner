@@ -1,12 +1,8 @@
-SET(LIB_NAME bullet_app)
-add_library(${LIB_NAME} src/bullet_app.cpp)
+SET(LIB_NAME bullet_client)
+add_library(${LIB_NAME} src/bullet_client.cpp)
 target_link_libraries(${LIB_NAME}
         ${Log4cxx_LIBRARY}
-        OpenGLWindow    # For GUI Application
-        BulletCollision
-        Bullet3Common
-        BulletDynamics
-        BulletExampleBrowserLib # For GUI Helper
+
         )
 target_include_directories(${LIB_NAME}
         PUBLIC
