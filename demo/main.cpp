@@ -11,6 +11,7 @@
 #include <moveit/robot_state/robot_state.h>
 #include <ros_data_loader/moveit_data_loader.h>
 #include <moveit/planning_interface/planning_interface.h>
+#include <moveit/planning_scene/planning_scene.h>
 
 #include <robotflow_log.h>
 #include <boost/scoped_ptr.hpp>
@@ -104,6 +105,9 @@ int main(int argc, const char* argv[]) {
     if(planner == nullptr) {
         LOG4CXX_FATAL(logger, "Empty planner")
     }
+
+    LOG4CXX_INFO(logger, "Create Planning scene")
+    planning_scene::PlanningScenePtr planningScene = std::make_shared<planning_scene::PlanningScene>(loader.getModel());
 
     rviz_visual_tools::RvizVisualToolsGui rviz_gui();
     rviz_visual_tools::RvizVisualTools rviz_tool("/world", "rviz_marker", node);

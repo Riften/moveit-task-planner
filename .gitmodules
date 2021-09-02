@@ -2,3 +2,7 @@
 	path = extern/bullet3
 	url = git@github.com:bulletphysics/bullet3.git
 	branch = master
+[submodule "extern/downward"]
+	path = extern/downward
+	url = git@github.com:aibasel/downward.git
+	branch = main

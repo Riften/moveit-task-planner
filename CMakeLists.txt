@@ -27,7 +27,14 @@ find_package(Log4cxx REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_ros_planning REQUIRED)
 find_package(moveit_ros_visualization REQUIRED)
+
+# Note that moveit_core is already linked by other libs.
+# But we still need to find it as we hope our symbolic_world only link
+# with this lib instead of a whole planning lib so that it can be used
+# without ros.
+find_package(moveit_core REQUIRED)
 find_package(rviz_visual_tools REQUIRED)
 # MESSAGE(STATUS "Found moveit_core_INCLUDE_DIRS ${moveit_core_INCLUDE_DIRS}")
 # find_package(moveit_ros_planning REQUIRED)
@@ -49,6 +56,7 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory(ros_data_loader)
+add_subdirectory(symbolic_world)
 if(BUILD_BULLET_APP)
   add_subdirectory(extern/bullet3)
   MESSAGE(STATUS "BULLET_PHYSICS_SOURCE_DIR ${BULLET_PHYSICS_SOURCE_DIR}")

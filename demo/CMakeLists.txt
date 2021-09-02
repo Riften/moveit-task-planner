@@ -18,4 +18,5 @@ ament_target_dependencies(demo
         pluginlib
         moveit_ros_planning_interface
         moveit_ros_visualization
-        rviz_visual_tools)
+        rviz_visual_tools
+        moveit_ros_planning)
