@@ -29,6 +29,10 @@ find_package(pluginlib REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(moveit_ros_planning REQUIRED)
 find_package(moveit_ros_visualization REQUIRED)
+find_package(std_msgs REQUIRED) # For publisher tutorial
+find_package(example_interfaces REQUIRED)
+find_package(rcl_interfaces REQUIRED)
+find_package(Boost REQUIRED COMPONENTS filesystem)
 
 # Note that moveit_core is already linked by other libs.
 # But we still need to find it as we hope our symbolic_world only link
@@ -43,6 +47,7 @@ find_package(rviz_visual_tools REQUIRED)
 SET(RF_COMMON_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/robotflow_common")
 SET(ROS_DATA_LOADER_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/ros_data_loader/include")
 SET(BULLET_APP_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/bullet_app/include")
+SET(RVIZ_CLIENT_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/rviz_client/include")
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -56,6 +61,7 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory(ros_data_loader)
+add_subdirectory(rviz_client)
 add_subdirectory(symbolic_world)
 if(BUILD_BULLET_APP)
   add_subdirectory(extern/bullet3)

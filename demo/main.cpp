@@ -72,7 +72,7 @@ int main(int argc, const char* argv[]) {
     rclcpp::NodeOptions node_options;
     // node_options.automatically_declare_parameters_from_overrides(true);
     // node_options.allow_undeclared_parameters(true);
-    std::shared_ptr<rclcpp::Node> node = std::make_shared<rclcpp::Node>("task_planner_demo", node_options);
+    std::shared_ptr<rclcpp::Node> node = std::make_shared<rclcpp::Node>("rviz", node_options);
     rclcpp::executors::SingleThreadedExecutor executor;
     executor.add_node(node);
 
@@ -96,7 +96,7 @@ int main(int argc, const char* argv[]) {
 
 
     //std::cout << node->get_parameter("panda_model") << std::endl;
-    robot_model_loader::RobotModelLoader loader(node, "panda", false);
+    robot_model_loader::RobotModelLoader loader(node, "robot_description", false);
 
     LOG4CXX_INFO(logger, "Create ompl planner")
     planning_interface::PlannerManagerPtr planner = LoadOmplPlanner(node,
@@ -110,9 +110,9 @@ int main(int argc, const char* argv[]) {
     planning_scene::PlanningScenePtr planningScene = std::make_shared<planning_scene::PlanningScene>(loader.getModel());
 
     rviz_visual_tools::RvizVisualToolsGui rviz_gui();
-    rviz_visual_tools::RvizVisualTools rviz_tool("/world", "rviz_marker", node);
+    //rviz_visual_tools::RvizVisualTools rviz_tool("/world", "rviz_marker", node);
 
     sleep(10);
-    rclcpp::shutdown();
+    // rclcpp::shutdown();
     return 0;
 }

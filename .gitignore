@@ -1,2 +1,5 @@
 .idea
 cmake-build-debug
+.ipynb_checkpoints
+venv
+/extern/downward/src/translate/__init__.py

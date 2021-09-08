@@ -11,5 +11,5 @@ SymbolicWorld::SymbolicWorld(collision_detection::WorldPtr world) {
 }
 
 void SymbolicWorld::init() {
-    moveit_world_->addObserver();
+    // moveit_world_->addObserver();
 }
